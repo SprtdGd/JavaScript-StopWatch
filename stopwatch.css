@@ -1,0 +1,234 @@
+body {
+    background: black;
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
+   
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+img {
+    width: 25%;
+}
+
+.wrapper {
+    width: 50%;
+    padding: 20px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+
+.container{
+    background-color: #141313;
+    position: relative;
+    padding: 20px 0;
+    border-radius: 20px;
+}
+
+
+
+/* container animation */
+
+.container:before, .container:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+    border-radius: 20px;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: colors 20s linear infinite;
+    
+}
+
+@keyframes colors {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.container:after {
+	filter: blur(50px);
+
+}
+
+
+
+
+.stopwatch{
+    position: relative;
+    width: 110%;
+    background-color: #141313;
+    border: 1px solid white;
+    left: -5%;
+    font-family: 'Roboto mono',monospace;
+    color: #ffffff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 0 20px rgba(0,139,253,0.25);
+    margin-bottom: 20px;
+}
+
+
+
+button {
+padding: 10px 20px;
+margin: 5px;
+background-color: transparent;
+
+color: white;
+font-size: 1.5rem;
+
+
+}
+
+/* Gradient Border  */
+
+.border-gradient {
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00);
+    
+  }
+
+
+
+
+
+
+/*
+*****************************
+* Clock Animation
+*****************************
+*/
+
+
+.watchContainer {
+    position: relative;
+    margin: auto;
+}
+
+
+.stopwatchNew2  {
+    height: 250px;
+    width: 250px;
+    position: relative;
+    margin: auto;
+    border-radius: 50%;
+  }
+
+
+  .stopwatchNew2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%; 
+    border: 10px solid transparent;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00) border-box;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    transform: scale(1.1);
+  }
+
+  .button1 {
+    background-color: #00ff00;
+    height: 30px;
+    width: 10px;
+    position: absolute;
+    left: 120px;
+    top:-37px;
+  }
+
+  .button1::before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 35px;
+    background-color: #00ff00;
+    bottom: 22px;
+    left: -11px;
+  }
+
+  .button2 {
+    background-color: #00ff00;
+    height: 30px;
+    width: 10px;
+    position: absolute;
+    left: 220px;
+    bottom: 220px;
+    transform: rotate(45deg);
+  }
+
+  .button2::before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 35px;
+    background-color: #00ff00;
+    bottom: 20px;
+    left: -11px;
+  }
+
+@property --percentage {
+    initial-value: 0%;
+    inherits: false;
+    syntax: "<percentage>";
+  }
+  
+  .pie {
+    background: conic-gradient(#fb0094, orange, yellow, green, blue var(--percentage), transparent 0);
+    border-radius: 50%;
+    position:absolute;
+    right: 10px;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    animation: timer 60s infinite linear;
+    animation-play-state: paused;
+  }
+  
+  @keyframes timer {
+    to {
+      --percentage: 100%;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
